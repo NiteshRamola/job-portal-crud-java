@@ -52,4 +52,19 @@ public class JobRepository {
 
         return null;
     }
+
+    public void updateJobPost(JobPost jobPost) {
+        for(JobPost job : jobPosts){
+            if(job.getPostId() == jobPost.getPostId()){
+                job.setPostDesc(jobPost.getPostDesc());
+                job.setPostProfile(jobPost.getPostProfile());
+                job.setPostTechStack(jobPost.getPostTechStack());
+                job.setReqExperience(jobPost.getReqExperience());
+            }
+        }
+    }
+
+    public void deleteJobById(int id) {
+        jobPosts.remove(getJobById(id));
+    }
 }
